@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tablo Linkleri</title>
+    <link rel="shortcut icon" type="image/png" href="img/logo.ico"/>
+    <link href='style.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="content">
+        <div class="con-user">
+            <div class="avatar">
+                <img src="img/logo.png" alt="">
+            </div>
+            <div class="title">
+                <h1>
+                    E-Tablo Linkleri
+                </h1>
+                <p>
+                    365 Gün Kurban Linkleri <br> Mıntıkalara ait E-Tablo linkleri bu sayfada yer almaktadır. 
+                </p>
+            </div>
+        </div>
+        <div class="con-menu">
+            <button onclick="handleClick(event, 'con-links')" class="active">
+                Linkler
+            </button>
+            <button onclick="handleClick(event, 'con-posts')">
+                Diğer Sayfalar
+            </button>
+        </div>
+        <div class="con-contents">
+            <div class="con-links">
+                <a target="_blank" href="https://dribbble.com/luisdanielrovira">
+                    <img src="img/bm.fw.png" alt="">
+                    <span>
+                        Bölge Merkezi
+                    </span>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/luisdanielroviracontreras/">
+                    <img src="img/ar.fw.png" alt="">
+                    <span>
+                        Araklı
+                    </span>
+                </a>
+                <a target="_blank" href="https://codepen.io/collection/DOaOeg">
+                    <img src="img/gi.fw.png" alt="">
+                    <span>
+                        Giresun
+                    </span>
+                </a>
+                <a target="_blank" href="http://vuesax.com/">
+                    <img src="img/gö.fw.png" alt="">
+                    <span>
+                        Görele
+                    </span>
+                </a>
+                <a target="_blank" href="https://lusaxweb.net/">
+                    <img src="img/gü.fw.png" alt="">
+                    <span>
+                        Gümüşhane
+                    </span>
+                </a>
+                <a target="_blank" href="https://www.patreon.com/luisdanielroviracontreras">
+                    <img src="img/se.fw.png" alt="">
+                    <span>
+                        Selimiye
+                    </span>
+                </a>
+                <a target="_blank" href="https://github.com/luisDanielRoviraContreras">
+                    <img src="img/yı.fw.png" alt="">
+                    <span>
+                        Yıldızlı
+                    </span>
+                </a>
+            </div>
+
+            <div class="con-posts">
+                <a class="post" target="_blank" href="https://www.instagram.com/p/CFVJcvtCDiu/">
+                    <div class="con-file">
+                        <img src="img/5loading.png" alt="">
+                    </div>
+
+                    <footer>
+                        <h3>
+                            <i class='bx bxl-instagram-alt'></i>
+                            Instagram
+                        </h3>
+                        <p>
+                            How to create 6 hover buttons
+                        </p>
+                    </footer>
+
+                    <div class="effect"></div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const user = document.querySelector('.con-user')
+    const menu = document.querySelector('.con-menu')
+    const contents = document.querySelector('.con-contents')
+    const links = document.querySelector('.con-contents .con-links')
+    const posts = document.querySelector('.con-contents .con-posts')
+    window.addEventListener("load", function(event) {
+        const vh = window.innerHeight * 0.01
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
+
+        setTimeout(function () {
+        window.scrollTo(0, 1)
+        }, 0)
+        const h = window.innerHeight - menu.clientHeight - user.clientHeight
+        contents.style.height = `${h}px`
+        links.style.height = `${h}px`
+        posts.style.height = `${h}px`
+    })
+
+    function handleClick(evt, name) {
+        const items = document.querySelectorAll('.con-menu button')
+        const el = evt.target
+        items.forEach((item) => {
+            item.classList.remove('active')
+        })
+        el.classList.add('active')
+        const elScroll = document.querySelector(`.${name}`)
+        contents.scrollTo(elScroll.offsetLeft, 0)
+    }
+
+    contents.addEventListener('scroll', (evt) => {
+        if (evt.target.scrollLeft > window.innerWidth / 2 && evt.target.scrollLeft < window.innerWidth + (window.innerWidth / 2)) {
+            menu.querySelector('button:nth-child(1)').classList.remove('active')
+            menu.querySelector('button:nth-child(2)').classList.add('active')
+            menu.querySelector('button:nth-child(3)').classList.remove('active')
+        } else if (evt.target.scrollLeft < window.innerWidth / 2) {
+            menu.querySelector('button:nth-child(1)').classList.add('active')
+            menu.querySelector('button:nth-child(2)').classList.remove('active')
+            menu.querySelector('button:nth-child(3)').classList.remove('active')
+        } else if (evt.target.scrollLeft > window.innerWidth + (window.innerWidth / 2)) {
+            menu.querySelector('button:nth-child(2)').classList.remove('active')
+            menu.querySelector('button:nth-child(3)').classList.add('active')
+        }
+    })
+</script>
+</html>

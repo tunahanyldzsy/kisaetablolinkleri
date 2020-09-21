@@ -1,0 +1,12 @@
+{
+    "name": "E-Tablo Linkleri",
+    "short_name": "E-Tablo Linkleri",
+    "description": "E-Tablo Linkleri",
+    "theme_color": "#fff",
+    "background_color": "white",
+    "display": "standalone",
+    "Scope": "./",
+    "start_url": "index.html",
+    "splash_pages": null
+    "icons": {"src": "img/logo.png","type": "image/png","sizes": "96x96"}
+  }
